@@ -16,9 +16,9 @@ const baseConfig: EnvironmentSettings = {
   gasPrice: 1e9, // 1 Gwei TODO: add gasPriceOracles
   rpcServiceUrl: 'https://rpc.fuse.io',
   safeAppsRpcServiceUrl: 'https://rpc.fuse.io',
-  networkExplorerName: 'Fuse Explorer',
-  networkExplorerUrl: 'https://explorer.fuse.io',
-  networkExplorerApiUrl: 'https://explorer.fuse.io/api',
+  networkExplorerName: 'TrustEVM Explorer',
+  networkExplorerUrl: 'https://www.trustexplorer.one',
+  networkExplorerApiUrl: 'https://www.trustexplorer.one',
 }
 
 const trustevmtestnet: NetworkConfig = {
