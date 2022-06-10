@@ -21,7 +21,7 @@ const baseConfig: EnvironmentSettings = {
   networkExplorerApiUrl: 'https://explorer.fuse.io/api',
 }
 
-const trustevm: NetworkConfig = {
+const trustevmtestnet: NetworkConfig = {
   environment: {
     dev: {
       ...baseConfig,
@@ -34,16 +34,16 @@ const trustevm: NetworkConfig = {
     },
   },
   network: {
-    id: ETHEREUM_NETWORK.TRUSTEVM,
-    shortName: SHORT_NAME.TRUSTEVM,
+    id: ETHEREUM_NETWORK.TRUSTEVMTESTNET,
+    shortName: SHORT_NAME.TRUSTEVMTESTNET,
     backgroundColor: '#084516',
     textColor: '#FFFFFF',
-    label: 'fuse',
+    label: 'trustevm testnet',
     ethereumLayer: ETHEREUM_LAYER.L2,
     nativeCoin: {
       address: '0x0000000000000000000000000000000000000000',
-      name: 'Fuse',
-      symbol: 'FUSE',
+      name: 'Trustevmtestnet',
+      symbol: 'evm',
       decimals: 18,
       logoUri: FuseLogo,
     },
@@ -72,4 +72,4 @@ const trustevm: NetworkConfig = {
   disabledFeatures: [FEATURES.DOMAIN_LOOKUP, FEATURES.SPENDING_LIMIT],
 }
 
-export default trustevm
+export default trustevmtestnet

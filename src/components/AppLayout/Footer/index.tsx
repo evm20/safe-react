@@ -54,18 +54,14 @@ const Footer = (): React.ReactElement => {
 
   return (
     <footer className={classes.footer}>
-      <span className={classes.item}>©{date.getFullYear()} fuseio</span>
+      <span className={classes.item}>©{date.getFullYear()} TrustSwap</span>
       <span className={classes.sep}>|</span>
       <Link
         className={cn(classes.item, classes.link)}
         target="_blank"
-        to="https://github.com/fuseio/safe-react"
+        to="https://github.com/evm20/safe-react"
       >
         {appVersion}
-      </Link>
-      <span className={classes.sep}>|</span>
-      <Link className={cn(classes.item, classes.link)} target="_blank" to="https://t.me/fuseio">
-        Support
       </Link>
     </footer>
   )

@@ -8,19 +8,20 @@ import {
   SHORT_NAME,
   WALLETS,
 } from 'src/config/networks/network.d'
+import { fuseBalancesHandler } from 'src/logic/safe/api/fetchTokenCurrenciesBalances'
 
 const baseConfig: EnvironmentSettings = {
-  clientGatewayUrl: 'http://ec2-3-124-115-95.eu-central-1.compute.amazonaws.com:8000/cgw/v1',
-  txServiceUrl: 'http://ec2-3-124-115-95.eu-central-1.compute.amazonaws.com:8000/txs/api/v1',
+  clientGatewayUrl: 'https://safe-service.fuse.io/cgw/v1',
+  txServiceUrl: 'https://safe-service.fuse.io/txs/api/v1',
   gasPrice: 1e9, // 1 Gwei TODO: add gasPriceOracles
-  rpcServiceUrl: 'https://rpc.fusespark.io',
-  safeAppsRpcServiceUrl: 'https://rpc.fusespark.io',
+  rpcServiceUrl: 'https://rpc.fuse.io',
+  safeAppsRpcServiceUrl: 'https://rpc.fuse.io',
   networkExplorerName: 'Fuse Explorer',
-  networkExplorerUrl: 'https://explorer.fusespark.io',
-  networkExplorerApiUrl: 'https://explorer.fusespark.io/api',
+  networkExplorerUrl: 'https://explorer.fuse.io',
+  networkExplorerApiUrl: 'https://explorer.fuse.io/api',
 }
 
-const spark: NetworkConfig = {
+const trustevm: NetworkConfig = {
   environment: {
     dev: {
       ...baseConfig,
@@ -33,23 +34,27 @@ const spark: NetworkConfig = {
     },
   },
   network: {
-    id: ETHEREUM_NETWORK.SPARK,
-    shortName: SHORT_NAME.SPARK,
-    backgroundColor: '#23194d',
+    id: ETHEREUM_NETWORK.TRUSTEVM,
+    shortName: SHORT_NAME.TRUSTEVM,
+    backgroundColor: '#084516',
     textColor: '#FFFFFF',
-    label: 'Spark',
+    label: 'trustevm',
     ethereumLayer: ETHEREUM_LAYER.L2,
     nativeCoin: {
       address: '0x0000000000000000000000000000000000000000',
-      name: 'Spark',
-      symbol: 'SPARK',
+      name: 'Trustevm',
+      symbol: 'evm',
       decimals: 18,
       logoUri: FuseLogo,
     },
+    customExchangePriceOracle: {
+      exchangePriceAPI: 'https://api.fuseswap.com/api/v1/price/',
+      wrappedNativeCurrencyAddress: '0x0BE9e53fd7EDaC9F859882AfdDa116645287C629',
+    },
+    balancesHandler: fuseBalancesHandler,
   },
   disabledWallets: [
     WALLETS.TREZOR,
-    WALLETS.LEDGER,
     WALLETS.COINBASE,
     WALLETS.FORTMATIC,
     WALLETS.OPERA,
@@ -62,8 +67,9 @@ const spark: NetworkConfig = {
     WALLETS.LATTICE,
     WALLETS.KEYSTONE,
     WALLETS.WALLET_CONNECT,
+    WALLETS.LEDGER,
   ],
   disabledFeatures: [FEATURES.DOMAIN_LOOKUP, FEATURES.SPENDING_LIMIT],
 }
 
-export default spark
+export default trustevm

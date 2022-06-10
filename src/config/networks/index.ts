@@ -1,11 +1,11 @@
 import local from './local'
-import fuse from './fuse'
-import spark from './spark'
+import trustevm from './trustevm'
+import trustevmtestnet from './trustevmtestnet'
 
 export default {
   local,
-  fuse,
-  spark,
+  trustevm,
+  trustevmtestnet,
 }
 // export default {
 //   local,
